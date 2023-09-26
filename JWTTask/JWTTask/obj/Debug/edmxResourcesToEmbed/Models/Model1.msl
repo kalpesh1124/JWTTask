@@ -1,0 +1,40 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="MVC0705DBModelStoreContainer" CdmEntityContainer="MVC0705DBEntities">
+    <EntitySetMapping Name="students">
+      <EntityTypeMapping TypeName="MVC0705DBModel.student">
+        <MappingFragment StoreEntitySet="students">
+          <ScalarProperty Name="rno" ColumnName="rno" />
+          <ScalarProperty Name="name" ColumnName="name" />
+          <ScalarProperty Name="english" ColumnName="english" />
+          <ScalarProperty Name="maths" ColumnName="maths" />
+          <ScalarProperty Name="science" ColumnName="science" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="tblproducts">
+      <EntityTypeMapping TypeName="MVC0705DBModel.tblproduct">
+        <MappingFragment StoreEntitySet="tblproducts">
+          <ScalarProperty Name="productId" ColumnName="productId" />
+          <ScalarProperty Name="productName" ColumnName="productName" />
+          <ScalarProperty Name="rate" ColumnName="rate" />
+          <ScalarProperty Name="description" ColumnName="description" />
+          <ScalarProperty Name="photos" ColumnName="photos" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <FunctionImportMapping FunctionImportName="spCheckLogin" FunctionName="MVC0705DBModel.Store.spCheckLogin">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="MVC0705DBModel.spCheckLogin_Result">
+          <ScalarProperty Name="employeeId" ColumnName="employeeId" />
+          <ScalarProperty Name="employeeName" ColumnName="employeeName" />
+          <ScalarProperty Name="roleId" ColumnName="roleId" />
+          <ScalarProperty Name="roleName" ColumnName="roleName" />
+          <ScalarProperty Name="mobileNumber" ColumnName="mobileNumber" />
+          <ScalarProperty Name="emailAddress" ColumnName="emailAddress" />
+          <ScalarProperty Name="employeeCode" ColumnName="employeeCode" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+  </EntityContainerMapping>
+</Mapping>

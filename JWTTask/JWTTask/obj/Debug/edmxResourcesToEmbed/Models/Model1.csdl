@@ -1,0 +1,40 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="MVC0705DBModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+  <EntityType Name="student">
+    <Key>
+      <PropertyRef Name="rno" />
+    </Key>
+    <Property Name="rno" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="name" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Name="english" Type="Int32" />
+    <Property Name="maths" Type="Int32" />
+    <Property Name="science" Type="Int32" />
+  </EntityType>
+  <EntityType Name="tblproduct">
+    <Key>
+      <PropertyRef Name="productId" />
+    </Key>
+    <Property Name="productId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="productName" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Name="rate" Type="Double" />
+    <Property Name="description" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+    <Property Name="photos" Type="String" MaxLength="400" FixedLength="false" Unicode="false" />
+  </EntityType>
+  <EntityContainer Name="MVC0705DBEntities" annotation:LazyLoadingEnabled="true">
+    <EntitySet Name="students" EntityType="Self.student" />
+    <EntitySet Name="tblproducts" EntityType="Self.tblproduct" />
+    <FunctionImport Name="spCheckLogin" ReturnType="Collection(MVC0705DBModel.spCheckLogin_Result)">
+      <Parameter Name="ecode" Mode="In" Type="String" />
+      <Parameter Name="pass" Mode="In" Type="String" />
+    </FunctionImport>
+  </EntityContainer>
+  <ComplexType Name="spCheckLogin_Result">
+    <Property Type="Int32" Name="employeeId" Nullable="false" />
+    <Property Type="String" Name="employeeName" Nullable="true" MaxLength="100" />
+    <Property Type="Int32" Name="roleId" Nullable="false" />
+    <Property Type="String" Name="roleName" Nullable="false" MaxLength="100" />
+    <Property Type="String" Name="mobileNumber" Nullable="true" MaxLength="20" />
+    <Property Type="String" Name="emailAddress" Nullable="true" MaxLength="100" />
+    <Property Type="String" Name="employeeCode" Nullable="true" MaxLength="10" />
+  </ComplexType>
+</Schema>
